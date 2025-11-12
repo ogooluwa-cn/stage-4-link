@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Framez App Test</title>
+  <script>
+    function redirectToApp() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      if (/android/i.test(userAgent)) {
+        // Redirect Android users
+        window.location.href = "https://appetize.io/app/b_wsmm36iw5aipglycz4ha3sfbsa";
+      } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        // Redirect iOS users
+        window.location.href = "https://appetize.io/app/b_goe6yi4atslk4nh4ph7ya7nz4i";
+      } else {
+        // Desktop fallback
+        document.getElementById("message").innerText = "Please open this link on an Android or iOS device to test the app.";
+      }
+    }
+
+    window.onload = redirectToApp;
+  </script>
+</head>
+<body>
+  <h1 id="message">Redirecting to your device...</h1>
+</body>
+</html>
